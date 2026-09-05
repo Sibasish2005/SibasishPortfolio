@@ -39,5 +39,6 @@ Sibasish Chakraborti builds modern, scalable custom build softwares, product-foc
 ## Detailed Context & Full Resume
 
 For an exhaustive breakdown of projects, services, complete technical matrix, and retrieval FAQs, see:
+- [Downloadable Frontend Resume PDF](https://sibasishdev.in/Sibasish_Chakraborti_Frontend_Resume.pdf)
 - [Full LLM Context File](https://sibasishdev.in/llms-full.txt)
 - [Sitemap](https://sibasishdev.in/sitemap.xml)

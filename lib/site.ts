@@ -29,7 +29,7 @@ export const siteConfig = {
   locale: "en_US",
   language: "en",
   themeColor: "#050505",
-  resumePath: "/resume.pdf",
+  resumePath: "/Sibasish_Chakraborti_Frontend_Resume.pdf",
   location: {
     city: "Agartala",
     state: "Tripura",

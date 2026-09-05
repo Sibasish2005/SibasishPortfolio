@@ -3,14 +3,12 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowDown, Volume2, VolumeX } from 'lucide-react';
-import { useAudioContext } from '@/src/components/providers/AudioProvider';
+import { ArrowDown } from 'lucide-react';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
-  const { isPlaying, toggleAudio, bands } = useAudioContext();
 
   // 2. ScrollTrigger smooth parallax
   useEffect(() => {
@@ -81,50 +79,14 @@ export default function HeroSection() {
         <span className="hidden sm:inline">ELEV: 15M // AGARTALA, TRIPURA</span>
       </div>
 
-      {/* Desktop Audio Visualizer Badge (HeaderNav already provides mobile audio toggle) */}
-      <div className="hidden sm:flex absolute top-20 sm:top-24 right-6 sm:right-14 z-30 flex-col items-end gap-2 text-[11px] font-mono tracking-wider text-neutral-500 uppercase">
-        <button
-          onClick={toggleAudio}
-          className="pointer-events-auto flex items-center gap-2.5 px-3.5 py-1.5 border border-black/10 hover:border-black/30 bg-white/80 backdrop-blur-md rounded-full transition-colors cursor-pointer shadow-xs"
-        >
-          {isPlaying ? (
-            <Volume2 className="w-3.5 h-3.5 text-[#FF5500] animate-pulse" />
-          ) : (
-            <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
-          )}
-          <span className="text-[11px] font-medium text-black">
-            AUDIO REACTIVE: {isPlaying ? 'ON' : 'OFF'}
-          </span>
-          {/* Live Audio Equalizer Bars */}
-          <div className="flex items-end gap-0.5 h-3 w-4">
-            <span
-              className="w-0.5 bg-[#FF5500] transition-all duration-75"
-              style={{ height: `${Math.max(15, (bands.low || 0) * 100)}%` }}
-            />
-            <span
-              className="w-0.5 bg-[#FF5500] transition-all duration-75"
-              style={{ height: `${Math.max(25, (bands.mid || 0) * 100)}%` }}
-            />
-            <span
-              className="w-0.5 bg-[#FF5500] transition-all duration-75"
-              style={{ height: `${Math.max(10, (bands.high || 0) * 100)}%` }}
-            />
-          </div>
-        </button>
-        <span className="text-[10px] text-neutral-400">CLICK TO TRANSMIT AUDIO</span>
-      </div>
-
       {/* Background ASCII Full Hero Cover Layer */}
       <div
         ref={portraitRef}
         className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-hidden"
       >
-        {/* Audio Reactive Ambient Backlight Glow */}
+        {/* Ambient Backlight Glow */}
         <div
-          className="absolute left-[15%] top-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] rounded-full bg-gradient-to-tr from-[#FF5500]/25 via-transparent to-[#FF5500]/15 blur-3xl transition-opacity duration-200 pointer-events-none"
-          style={{
-            opacity: isPlaying ? Math.max(0.35, (bands.low || 0) * 1.5) : 0.15,
-          }}
+          className="absolute left-[15%] top-1/2 -translate-y-1/2 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] rounded-full bg-gradient-to-tr from-[#FF5500]/25 via-transparent to-[#FF5500]/15 blur-3xl opacity-20 pointer-events-none"
         />
 
         {/* High-Resolution Orange ASCII Portrait Artwork covering entire background */}

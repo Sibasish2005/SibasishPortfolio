@@ -7,7 +7,6 @@ import { useLenis } from '@/src/components/providers/SmoothScrollProvider';
 
 export default function FooterSection() {
   const { scrollTo } = useLenis();
-  const [lang, setLang] = useState<'EN' | 'JA' | 'DE'>('EN');
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [timeStr, setTimeStr] = useState('');
@@ -163,7 +162,7 @@ export default function FooterSection() {
                 SIBASISHDEV.IN &rarr;
               </a>
               <a
-                href="https://sibasishdev.in/resume.pdf"
+                href="/Sibasish_Chakraborti_Frontend_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#FF5500] hover:text-white transition-colors font-bold"
@@ -270,23 +269,7 @@ export default function FooterSection() {
             <span className="text-[10px] sm:text-xs">&copy; 2026 SIBASISH CHAKRABORTI. ALL RIGHTS RESERVED.</span>
           </div>
 
-          {/* Language Switcher */}
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] text-neutral-600">LANG:</span>
-            {(['EN', 'JA', 'DE'] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => setLang(l)}
-                className={`px-2 py-0.5 rounded-xs transition-colors cursor-pointer text-[10px] sm:text-xs ${
-                  lang === l
-                    ? 'bg-[#FF5500] text-[#0D0D0D] font-bold'
-                    : 'bg-neutral-900 text-neutral-400 hover:text-white'
-                }`}
-              >
-                {l}
-              </button>
-            ))}
-          </div>
+
 
           {/* Back to Top */}
           <button

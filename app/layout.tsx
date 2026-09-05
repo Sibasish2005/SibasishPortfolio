@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Syne, Inter, Space_Mono } from 'next/font/google';
 import SmoothScrollProvider from '@/src/components/providers/SmoothScrollProvider';
-import AudioProvider from '@/src/components/providers/AudioProvider';
 import HeaderNav from '@/src/components/navigation/HeaderNav';
 import { siteConfig } from '@/lib/site';
 import { getBaseUrl } from '@/lib/seo';
@@ -120,16 +119,14 @@ export default function RootLayout({
       </head>
       <body className="min-h-screen bg-[#FFFFFF] text-[#0D0D0D] font-sans selection:bg-[#FF5500] selection:text-white">
         <SmoothScrollProvider>
-          <AudioProvider>
-            <HeaderNav />
-            <a
-              href="#main-content"
-              className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:shadow-lg focus:outline-none"
-            >
-              Skip to content
-            </a>
-            <main id="main-content" className="w-full flex flex-col">{children}</main>
-          </AudioProvider>
+          <HeaderNav />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[9999] focus:rounded-md focus:bg-white focus:px-4 focus:py-2 focus:text-black focus:shadow-lg focus:outline-none"
+          >
+            Skip to content
+          </a>
+          <main id="main-content" className="w-full flex flex-col">{children}</main>
         </SmoothScrollProvider>
       </body>
     </html>

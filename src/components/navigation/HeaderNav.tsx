@@ -1,12 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Volume2, VolumeX } from 'lucide-react';
-import { useAudioContext } from '@/src/components/providers/AudioProvider';
 import { useLenis } from '@/src/components/providers/SmoothScrollProvider';
 
 export default function HeaderNav() {
-  const { isPlaying, toggleAudio, bands } = useAudioContext();
   const { scrollTo } = useLenis();
   const [timeStr, setTimeStr] = useState('');
 
@@ -57,57 +54,26 @@ export default function HeaderNav() {
           </span>
         </div>
 
-        {/* Right: Audio Toggle & Quick Navigation */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        {/* Right: Quick Navigation */}
+        <div className="flex items-center gap-2 sm:gap-4">
           {/* Quick Section Anchors */}
           <button
             onClick={() => scrollTo('#about')}
-            className="hidden lg:inline-block text-neutral-600 hover:text-[#FF5500] transition-colors cursor-pointer px-2 py-1 font-medium"
+            className="text-neutral-600 hover:text-[#FF5500] transition-colors cursor-pointer px-2 py-1 font-medium"
           >
             ABOUT
           </button>
           <button
             onClick={() => scrollTo('#work')}
-            className="hidden lg:inline-block text-neutral-600 hover:text-[#FF5500] transition-colors cursor-pointer px-2 py-1 font-medium"
+            className="text-neutral-600 hover:text-[#FF5500] transition-colors cursor-pointer px-2 py-1 font-medium"
           >
             WORK
-          </button>
-
-          {/* Audio Visualizer Button */}
-          <button
-            onClick={toggleAudio}
-            title="Toggle Audio Reactive Music"
-            className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 bg-black text-white hover:bg-neutral-800 rounded-full transition-colors cursor-pointer shadow-xs"
-          >
-            {isPlaying ? (
-              <Volume2 className="w-3.5 h-3.5 text-[#FF5500] animate-pulse" />
-            ) : (
-              <VolumeX className="w-3.5 h-3.5 text-neutral-400" />
-            )}
-            <span className="text-[10px] sm:text-[11px] font-mono uppercase">
-              {isPlaying ? 'SOUND ON' : 'SOUND OFF'}
-            </span>
-            {/* Live Audio Equalizer Bars */}
-            <div className="flex items-end gap-0.5 h-2.5 w-3 sm:w-3.5 ml-0.5">
-              <span
-                className="w-0.5 bg-[#FF5500] transition-all duration-75"
-                style={{ height: `${Math.max(20, (bands.low || 0) * 100)}%` }}
-              />
-              <span
-                className="w-0.5 bg-[#FF5500] transition-all duration-75"
-                style={{ height: `${Math.max(30, (bands.mid || 0) * 100)}%` }}
-              />
-              <span
-                className="w-0.5 bg-[#FF5500] transition-all duration-75"
-                style={{ height: `${Math.max(15, (bands.high || 0) * 100)}%` }}
-              />
-            </div>
           </button>
 
           {/* Contact Anchor */}
           <button
             onClick={() => scrollTo('#contact')}
-            className="hidden sm:inline-block px-3 py-1 border border-black/15 hover:border-black rounded-full font-bold uppercase transition-colors cursor-pointer text-[#0D0D0D]"
+            className="px-3.5 py-1 border border-black/15 hover:border-black bg-black text-white hover:bg-neutral-800 rounded-full font-bold uppercase transition-colors cursor-pointer"
           >
             CONTACT
           </button>
