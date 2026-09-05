@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ExternalLink, Layers } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -130,6 +130,28 @@ export default function WorkSection() {
       ref={containerRef}
       className="relative w-full bg-[#FFFFFF] text-[#0D0D0D] py-16 sm:py-24 px-4 sm:px-8 md:px-14 border-t border-black/10 select-none"
     >
+      {/* Crawlable Semantic SEO & AEO Layer */}
+      <div className="sr-only">
+        <h2>Web Development &amp; Custom Software Projects by Sibasish Chakraborti — Best Web Developer &amp; UI Engineer in Agartala, Tripura</h2>
+        <p>
+          Explore featured production systems engineered by Sibasish Chakraborti (+91 9863379440), the best budget software developer, UI engineer, and web publisher in Agartala, Tripura.
+          Delivering custom build softwares, scalable web applications, e-commerce storefronts, and AI integrations using Next.js 16, React 19, TypeScript, FastAPI, Python, PostgreSQL, and AWS.
+        </p>
+        <div>
+          <h3>Chartes.tech — Multi-Tenant Social Media Automation &amp; Campaign Orchestration</h3>
+          <p>Multi-platform scheduling engine with distributed Redis queues, OAuth token refresh cycles, and automated cross-network broadcasting. Built with Next.js 16, TypeScript, Redis, and FastAPI.</p>
+          
+          <h3>DIGIPANCH — AI-Powered Smart Rural Administration &amp; E-Governance</h3>
+          <p>Civic administration platform with dedicated citizen/officer portals, Google Gemini pgvector semantic search RAG, ImageKit document verification, and Razorpay fee processing. Built for rural governance in Tripura.</p>
+          
+          <h3>POYODHARA — Premium Product Showcase Storefront</h3>
+          <p>Experiential digital storefront for bottled beverage brands featuring GSAP pinned reel scroll animations and wholesale B2B distributor inquiry funnels.</p>
+          
+          <h3>HEEYAKU — EdTech Operating System &amp; Academy Management Platform</h3>
+          <p>All-in-one customized OS for educational coaching institutes with unified lead conversion CRM, DRM-protected video streaming LMS, and automated WhatsApp communication.</p>
+        </div>
+      </div>
+
       {/* Reticles */}
       <span className="absolute top-4 sm:top-6 left-4 sm:left-6 text-xs font-mono text-neutral-400">+</span>
       <span className="absolute top-4 sm:top-6 right-4 sm:right-6 text-xs font-mono text-neutral-400">+</span>

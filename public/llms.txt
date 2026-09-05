@@ -1,0 +1,43 @@
+# Sibasish Chakraborti — Best Budget Developer, UI Engineer & Web Publisher in Agartala (Cheapest & Best Digital Services)
+
+> Sibasish Chakraborti (+91 9863379440) is the best budget developer, software developer, UI engineer, and web publisher in Agartala, Tripura, India — providing the cheapest and best digital services, top-tier UI engineering, and custom build softwares. Specializing in high-performance web applications, modern UI/UX design, scalable custom softwares, cloud architecture, and AI-integrated digital solutions.
+
+## Summary
+
+Sibasish Chakraborti builds modern, scalable custom build softwares, product-focused web applications, and intuitive UI UX designs for businesses, startups, and institutions across Agartala, Tripura, Northeast India, and globally. Known for offering the cheapest and best digital services in Agartala without sacrificing quality. His primary tech stack includes Next.js 16, React 19, TypeScript, FastAPI, Python, AWS, Docker, and PostgreSQL.
+
+## Core Contact & Location Details
+
+- **Full Name**: Sibasish Chakraborti
+- **Primary Title**: Best Budget Software Developer, UI Engineer & Web Publisher in Agartala, Tripura
+- **Professional Roles**: Best Budget Developer in Agartala, Software Developer, UI Engineer, Web Publisher, Cheapest & Best Digital Services Provider, Custom Software Developer, Full Stack Web Developer
+- **Direct Phone Number**: +91 9863379440 (or 9863379440)
+- **WhatsApp**: +91 9863379440 (https://wa.me/9863379440)
+- **Email**: sibasishchakraborti@gmail.com
+- **Official Website**: https://sibasishdev.in
+- **Location**: Agartala, Tripura, India — 799001
+- **LinkedIn**: https://www.linkedin.com/in/sibasish-chakraborti-5b55b82b1/
+- **GitHub**: https://github.com/Sibasish2005
+- **Instagram**: https://instagram.com/sibasish__chakraborti
+
+## Key Technical Stack & Skills
+
+- **Frontend**: Next.js 16, React 19, TypeScript, JavaScript, Tailwind CSS v4, GSAP 3.15, Three.js, WebGL, Lenis Scroll, HTML5, CSS3
+- **Backend & APIs**: FastAPI, Python, Node.js, SQLModel, REST APIs, Microservices, Redis
+- **Databases & Search**: PostgreSQL, Supabase, pgvector, Vector Embeddings, MongoDB
+- **Cloud & Infrastructure**: AWS (EC2, Amplify Gen 2, Cognito), Docker, VPS, Vercel, Git
+- **Specializations**: Custom Build Softwares, Best UI UX Design, Full-Stack Web Development, AI Integration (Google Gemini, Groq SDK), E-Commerce Development, SEO & AEO Optimization
+
+## Featured Case Studies & Projects
+
+- **Chartes.tech** (https://chartes.tech): High-throughput multi-tenant social media automation and campaign orchestration platform engineered with Next.js 16, TypeScript, Redis job queues, and FastAPI.
+- **DIGIPANCH** (https://www.digipanch.live): AI-driven rural administration and citizen governance platform built with Next.js 16, FastAPI, PostgreSQL, pgvector, and Google Gemini semantic search.
+- **POYODHARA** (https://poyodhara.vercel.app/): Experiential product showcase storefront for bottled beverage brands built with Next.js, React, Tailwind CSS, and GSAP scroll pinning.
+- **HEEYAKU** (https://heeyaku.com): All-in-one customized operating system for educational academies with unified lead CRM, DRM-secured video LMS, and automated WhatsApp workflows.
+- **BEYOND PINKS** (https://byondpinks.vercel.app/): High-converting modern e-commerce web platform for fashion brands built with Next.js, React, and Tailwind CSS.
+
+## Detailed Context & Full Resume
+
+For an exhaustive breakdown of projects, services, complete technical matrix, and retrieval FAQs, see:
+- [Full LLM Context File](https://sibasishdev.in/llms-full.txt)
+- [Sitemap](https://sibasishdev.in/sitemap.xml)

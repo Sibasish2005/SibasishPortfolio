@@ -64,6 +64,27 @@ export default function AboutSection() {
 
   return (
     <section id="about" className="relative w-full bg-[#F4F4F2] text-[#0D0D0D] overflow-hidden border-t border-b border-black/10">
+      {/* Crawlable Semantic SEO & AEO Layer */}
+      <div className="sr-only">
+        <h2>About Sibasish Chakraborti — Best Budget Developer, UI Engineer &amp; Web Publisher in Agartala, Tripura</h2>
+        <p>
+          Sibasish Chakraborti (+91 9863379440) is a Full Stack Developer, UI Engineer, and Freelance Software Engineer based in Agartala, Tripura, India (PIN: 799001).
+          Known for providing the cheapest and best digital services, custom build softwares, modern UI engineering, and high-performance web applications.
+        </p>
+        <p>
+          Core Specializations: Full-Stack Web Development with Next.js 16 and React 19, Python FastAPI backend microservices, AWS Amplify Gen 2 and cloud infrastructure, GSAP motion engineering, Three.js WebGL shaders, PostgreSQL, pgvector, and AI integrations (Google Gemini API, Groq SDK).
+        </p>
+        <p>
+          Services Offered: Best budget software development, UI engineering, web publisher services, custom business software, e-commerce storefronts, and cloud deployment in Agartala, Tripura, and across Northeast India.
+        </p>
+        <p>
+          Mission: I&apos;m on a mission to be the best budget software developer and UI engineer in Agartala, Tripura. Building scalable digital products that solve meaningful real-world problems and helping local businesses, startups, and institutions thrive in the digital age.
+        </p>
+        <address>
+          Location: Agartala, Tripura, India — 799001. Direct Phone / WhatsApp: +91 9863379440. Email: sibasishchakraborti@gmail.com.
+        </address>
+      </div>
+
       {/* 1. Stepped Pixel Curtain Reveal Transition */}
       <div className="w-full h-24 md:h-32 -mt-12 md:-mt-16 z-20 relative">
         <PixelGridTransition mode="reveal" className="h-full" />

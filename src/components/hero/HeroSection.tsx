@@ -49,8 +49,22 @@ export default function HeroSection() {
   return (
     <section
       ref={sectionRef}
+      aria-labelledby="hero-summary"
       className="relative w-full min-h-screen bg-[#FFFFFF] overflow-hidden select-none flex flex-col justify-between"
     >
+      {/* Crawlable Semantic SEO & AEO Layer */}
+      <div className="sr-only">
+        <h1 id="hero-summary">
+          Sibasish Chakraborti — Best Budget Software Developer, UI Engineering &amp; Web Publisher in Agartala, Tripura
+        </h1>
+        <p>
+          Welcome to the official portfolio of Sibasish Chakraborti (+91 9863379440), the best budget developer, software developer, UI engineer, and web publisher in Agartala, Tripura. Offering the cheapest and best digital services, custom build softwares, modern UI engineering, and scalable web applications using Next.js 16, React 19, TypeScript, FastAPI, Python, and AWS.
+        </p>
+        <p>
+          Looking for affordable software development or the best budget developer in Agartala, Tripura? Sibasish Chakraborti delivers professional UI engineering, web publishing, e-commerce storefronts, and cloud deployment for businesses, startups, and institutions across Agartala, Tripura, Northeast India, and globally. Direct Phone / WhatsApp: +91 9863379440 | Email: sibasishchakraborti@gmail.com.
+        </p>
+      </div>
+
       {/* Reticle / Plus Crosshairs (+) at viewport corners per design.md */}
       <span className="absolute top-4 sm:top-6 left-4 sm:left-6 text-xs font-mono text-neutral-400 z-30 pointer-events-none">+</span>
       <span className="absolute top-4 sm:top-6 right-4 sm:right-6 text-xs font-mono text-neutral-400 z-30 pointer-events-none">+</span>
