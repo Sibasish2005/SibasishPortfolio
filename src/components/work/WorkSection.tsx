@@ -66,21 +66,7 @@ const PROJECTS: Project[] = [
     metrics: ['Scroll Driven', 'GSAP Pinned Reel', 'Wholesale Funnel'],
     gradient: 'from-cyan-600/20 via-neutral-900 to-black',
   },
-  {
-    id: '04',
-    title: 'Heeyaku',
-    category: 'EdTech OS & Academy Management Platform',
-    year: '2025',
-    client: 'Heeyaku EdTech Solutions',
-    liveUrl: 'https://heeyaku.com',
-    deviceType: 'laptop',
-    image: '/heeyaku.webp',
-    summary:
-      'All-in-one customized operating system engineered for academies, coaching institutes, and bootcamps. Integrates unified lead conversion CRM, DRM-secured video learning management systems (LMS), high-speed modern portals, and automated WhatsApp communication workflows.',
-    tags: ['Next.js 16', 'React 19', 'EdTech LMS', 'DRM Video', 'WhatsApp API', 'CRM Automation'],
-    metrics: ['DRM Video LMS', 'WhatsApp Workflows', 'Unified Lead CRM'],
-    gradient: 'from-blue-600/20 via-neutral-900 to-black',
-  },
+ 
 ];
 
 export default function WorkSection() {
