@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowDown } from 'lucide-react';
@@ -91,11 +92,14 @@ export default function HeroSection() {
 
         {/* High-Resolution Orange ASCII Portrait Artwork covering entire background */}
         <div className="relative w-full h-full">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src="/sibasishAscii.webp"
             alt="Sibasish Chakraborti - Full Stack Developer ASCII Portrait Background"
-            className="w-full h-full object-cover object-left md:object-[left_center] mix-blend-multiply"
+            fill
+            priority
+            sizes="100vw"
+            quality={85}
+            className="object-cover object-left md:object-[left_center] mix-blend-multiply"
           />
         </div>
       </div>

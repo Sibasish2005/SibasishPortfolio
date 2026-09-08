@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PixelGridTransition from '@/src/components/transitions/PixelGridTransition';
 import { Plus, Minus } from 'lucide-react';
 
@@ -57,6 +57,29 @@ const DISCIPLINES: Discipline[] = [
 
 export default function AboutSection() {
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Lazy play/pause video based on viewport visibility
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch(() => {});
+          } else {
+            video.pause();
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
 
   const toggleAccordion = (id: string) => {
     setActiveAccordion(activeAccordion === id ? null : id);
@@ -94,10 +117,12 @@ export default function AboutSection() {
       <div className="relative w-full px-4 sm:px-6 md:px-14 pt-6 sm:pt-8 pb-12 sm:pb-16 max-w-7xl mx-auto">
         <div className="relative w-full h-[300px] sm:h-[380px] md:h-[480px] rounded-xs overflow-hidden border border-black/15 shadow-sm bg-neutral-900 group">
           <video
-            autoPlay
+            ref={videoRef}
             loop
             muted
             playsInline
+            preload="none"
+            poster="/video/about-poster.webp"
             className="w-full h-full object-cover grayscale contrast-125 brightness-90 transition-transform duration-1000 group-hover:scale-105"
           >
             <source src="/video/about.mp4" type="video/mp4" />

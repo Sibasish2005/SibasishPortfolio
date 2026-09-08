@@ -86,6 +86,10 @@ export default function PixelGridTransition({
     <div
       ref={containerRef}
       className={`relative w-full overflow-hidden pointer-events-none ${className}`}
+      style={{
+        contain: 'paint layout',
+        contentVisibility: 'auto',
+      }}
       aria-hidden="true"
     >
       <div
@@ -101,7 +105,6 @@ export default function PixelGridTransition({
           <div
             key={idx}
             className="pixel-block w-full h-full bg-[#FF5500] aspect-square"
-            style={{ willChange: 'transform, opacity' }}
           />
         ))}
       </div>

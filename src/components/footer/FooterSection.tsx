@@ -1,42 +1,49 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import PixelGridTransition from '@/src/components/transitions/PixelGridTransition';
-import { ArrowUp, Send, CheckCircle2 } from 'lucide-react';
+import { ArrowUp, Send, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 import { useLenis } from '@/src/components/providers/SmoothScrollProvider';
+import AgartalaClock from '@/src/components/navigation/AgartalaClock';
 
 export default function FooterSection() {
   const { scrollTo } = useLenis();
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [timeStr, setTimeStr] = useState('');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Dynamic Agartala (IST) Time
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      };
-      setTimeStr(new Intl.DateTimeFormat('en-IN', options).format(now));
-    };
-    updateTime();
-    const timer = setInterval(updateTime, 1000);
-    return () => clearInterval(timer);
-  }, []);
-
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formState.email) return;
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    if (!formState.email || !formState.name || !formState.message) return;
+    setIsSubmitting(true);
+    setErrorMessage(null);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formState),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to dispatch transmission.');
+      }
+
+      setIsSubmitted(true);
       setFormState({ name: '', email: '', message: '' });
-    }, 4500);
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 6000);
+    } catch (err: unknown) {
+      console.error('Contact Submission Error:', err);
+      const msg = err instanceof Error ? err.message : 'Transmission failed. Please message via WhatsApp.';
+      setErrorMessage(msg);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -119,7 +126,7 @@ export default function FooterSection() {
               </div>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="text-[#FF5500]">TIMEZONE:</span>
-                <span className="text-white font-bold">{timeStr || '15:30:00'} AGARTALA / INDIA (IST)</span>
+                <span className="text-white font-bold"><AgartalaClock showLocation={false} /> AGARTALA / INDIA (IST)</span>
               </div>
               <div className="flex flex-wrap items-center gap-2 sm:gap-3">
                 <span className="text-[#FF5500]">COORDINATES:</span>
@@ -236,13 +243,30 @@ export default function FooterSection() {
                   />
                 </div>
 
+                {errorMessage && (
+                  <div className="flex items-center gap-2 p-3 bg-red-950/50 border border-red-500/30 rounded-xs text-red-300 text-xs font-mono">
+                    <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
+
                 <div className="flex flex-col sm:flex-row gap-3">
                   <button
                     type="submit"
-                    className="flex-1 py-3.5 sm:py-4 bg-[#FF5500] hover:bg-[#ff6a1a] text-[#0D0D0D] font-extrabold text-xs font-mono uppercase tracking-widest flex items-center justify-center gap-2 transition-colors cursor-pointer rounded-xs"
+                    disabled={isSubmitting}
+                    className="flex-1 py-3.5 sm:py-4 bg-[#FF5500] hover:bg-[#ff6a1a] disabled:opacity-60 disabled:cursor-not-allowed text-[#0D0D0D] font-extrabold text-xs font-mono uppercase tracking-widest flex items-center justify-center gap-2 transition-colors cursor-pointer rounded-xs"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>TRANSMIT DISPATCH &rarr;</span>
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>DISPATCHING...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        <span>TRANSMIT DISPATCH &rarr;</span>
+                      </>
+                    )}
                   </button>
 
                   <a

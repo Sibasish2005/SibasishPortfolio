@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ExternalLink } from 'lucide-react';
@@ -175,11 +176,13 @@ export default function WorkSection() {
                 }`}
               >
                 <div className="relative w-full aspect-[16/10] max-w-2xl mx-auto flex items-center justify-center group overflow-hidden">
-                  {/* Outer Hardware SVG Mockup Frame (Now with transparent cutout mask) */}
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  {/* Outer Hardware SVG Mockup Frame */}
+                  <Image
                     src={proj.deviceType === 'monitor' ? '/mockups/monitor.svg' : '/mockups/laptop.svg'}
                     alt={`${proj.title} Device Mockup`}
+                    width={672}
+                    height={420}
+                    loading="lazy"
                     className="relative z-20 w-full h-full object-contain pointer-events-none drop-shadow-xl"
                   />
 
@@ -207,11 +210,14 @@ export default function WorkSection() {
 
                     {/* Real Screenshot with Parallax & Hover Effect */}
                     <div className="screen-parallax relative w-full h-[115%] -top-[6%] overflow-hidden">
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
+                      <Image
                         src={proj.image}
                         alt={`${proj.title} Platform Screenshot`}
-                        className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 650px"
+                        quality={85}
+                        loading="lazy"
+                        className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                       />
                     </div>
                   </div>

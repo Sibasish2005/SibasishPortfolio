@@ -1,28 +1,11 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useLenis } from '@/src/components/providers/SmoothScrollProvider';
+import AgartalaClock from '@/src/components/navigation/AgartalaClock';
 
 export default function HeaderNav() {
   const { scrollTo } = useLenis();
-  const [timeStr, setTimeStr] = useState('');
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      const options: Intl.DateTimeFormatOptions = {
-        timeZone: 'Asia/Kolkata',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false,
-      };
-      setTimeStr(new Intl.DateTimeFormat('en-IN', options).format(now));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-white/85 backdrop-blur-md border-b border-black/10 select-none">
@@ -49,9 +32,7 @@ export default function HeaderNav() {
             </span>
           </div>
           <span className="text-neutral-400">|</span>
-          <span className="text-[#0D0D0D] font-bold tracking-wider">
-            {timeStr || '15:30:00'} AGARTALA, INDIA
-          </span>
+          <AgartalaClock className="text-[#0D0D0D] font-bold tracking-wider" />
         </div>
 
         {/* Right: Quick Navigation */}
